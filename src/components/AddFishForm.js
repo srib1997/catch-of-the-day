@@ -34,7 +34,7 @@ class AddFishForm extends React.Component {
         <input name="name" ref={this.nameRef} type="text" placeholder="Name" /> {/* 在render函數中 ref={this.nameRef} */}
         <input name="price" ref={this.priceRef} type="text" placeholder="Price" />{/* 輸入框的內容 = placeholder */}
         <select name="status" ref={this.statusRef} >
-        <option value="available">Fresh!</option>
+          <option value="available">Fresh!</option>
           <option value="unavailable">Sold Out!</option>
         </select>
 
