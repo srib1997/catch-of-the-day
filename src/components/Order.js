@@ -5,7 +5,12 @@ class Order extends React.Component {
   renderOrder = key => {
     const fish = this.props.fishes[key]
     const count = this.props.order[key]
-    const isAvailable = fish.status === 'available'
+    const isAvailable = fish && fish.status === 'available'
+    // Make sure the fish is loaded before we continue
+    // 在我們繼續之前確保魚 load 完
+    // 因為我地係向 firebase 比資料再從 firebase 拿番資料，所以中間會出現短時間 fish 係無依個野，所以上面的 fish.status 根本讀唔到，會造成 error
+    if(!fish) return null
+
     if(!isAvailable){
       return (
       <li key={key}>

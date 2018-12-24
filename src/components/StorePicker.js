@@ -7,11 +7,15 @@ class StorePicker extends React.Component {
 
   goToStore = event => {
     // 1. stop the form from submitting
+    // 1. 停止提交表單
+    // preventDefault(取消事件的默認動作)
     event.preventDefault()
     // 2. get the text from that input
+    // 2. 從該輸入中獲取文本
     console.log(this)
     const storeName = this.myInput.current.value
     // 3. change the page to /store/whatever-they-entered
+    // 3. 將頁面更改為 /store/whatever-they-entered
     this.props.history.push(`/store/${storeName}`)
   }
 

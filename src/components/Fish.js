@@ -12,7 +12,7 @@ class Fish extends React.Component {
     const isAvailable = status === 'available'
     return (
     <li className="menu-fish">
-      <img src={image} alt={name} />
+      <img src={image} alt={name} />{/* src 姐係位址 */}
       <h3 className="fish-name">
         {name}
         <span className="price">
