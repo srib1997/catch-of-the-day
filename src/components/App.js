@@ -60,6 +60,14 @@ class App extends React.Component {
     this.setState({ fishes })
   }
 
+  delectFish = (key) => {
+    // 1. take a copy of state
+     const fishes = { ...this.state.fishes }
+    // 2. update the state
+    fishes[key] = null
+    // 3, update state
+    this.setState({ fishes })
+  }
   loadSampleFishes = () => {
     this.setState({ fishes: sampleFishes })
   }
@@ -71,6 +79,17 @@ class App extends React.Component {
     // 2. Either add to the order, or update the number in our order
     // 2. 添加到訂單，或者按我們的訂單更新號碼
     order[key] = order[key] + 1 || 1
+    // 3. Call setState to update our state
+    // 3. 調用setState來更新我們的狀態
+    this.setState({ order })
+  }
+
+  removeFromOrder = key => {
+    // 1. take a copy of state
+    // 1. copy 一份副本
+    const order = { ...this.state.order }
+    // 2. Remove that item from order
+    delete order[key]
     // 3. Call setState to update our state
     // 3. 調用setState來更新我們的狀態
     this.setState({ order })
@@ -93,15 +112,17 @@ class App extends React.Component {
           </ul>
         </div>
         <Order 
-        fishes={this.state.fishes} 
-        order={this.state.order} 
+          fishes={this.state.fishes} 
+          order={this.state.order} 
+          removeFromOrder={this.removeFromOrder}
         />
 
         <Inventory 
-        addFish={this.addFish} 
-        updateFish={this.updateFish} 
-        loadSampleFishes={this.loadSampleFishes} 
-        fishes={this.state.fishes}
+          addFish={this.addFish} 
+          updateFish={this.updateFish} 
+          deleteFish={this.delectFish}
+          loadSampleFishes={this.loadSampleFishes} 
+          fishes={this.state.fishes}
         />
       </div>
     )
