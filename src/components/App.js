@@ -5,11 +5,17 @@ import Order from'./Order'
 import sampleFishes  from '../sample-fishes'
 import Fish from './Fish'
 import base from '../base'
+import PropTypes from 'prop-types'
 
 class App extends React.Component {
+  
   state = {
     fishes: {},
     order: {}
+  }
+
+  static propTypes = {
+    match: PropTypes.object
   }
 
   // 當元件被寫入 DOM 之後觸發. 當初始化需要操作 DOM 元素就可以用這個方法

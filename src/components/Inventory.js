@@ -14,5 +14,5 @@ class Inventory extends React.Component {
     )
   }
 }
-
+// 清單
 export default Inventory

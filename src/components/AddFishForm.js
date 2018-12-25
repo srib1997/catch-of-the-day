@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 class AddFishForm extends React.Component {
   // 在 class 中聲明 或者在 constructor 中聲明 this.nameRef = React.createRef()
@@ -7,6 +8,10 @@ class AddFishForm extends React.Component {
   statusRef = React.createRef()
   descRef = React.createRef()
   imageRef = React.createRef()
+
+  static propTypes = {
+    addFish: PropTypes.func
+  }
 
   createFish = (event) => {
     // 1. stop the form from submitting
