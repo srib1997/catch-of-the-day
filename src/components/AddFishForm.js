@@ -1,4 +1,5 @@
 import React from 'react'
+// check component 的類型
 import PropTypes from 'prop-types'
 
 class AddFishForm extends React.Component {

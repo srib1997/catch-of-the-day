@@ -8,7 +8,7 @@ import base from '../base'
 import PropTypes from 'prop-types'
 
 class App extends React.Component {
-  
+
   state = {
     fishes: {},
     order: {}
@@ -135,6 +135,7 @@ class App extends React.Component {
           deleteFish={this.delectFish}
           loadSampleFishes={this.loadSampleFishes} 
           fishes={this.state.fishes}
+          storeId={this.props.match.params.storeId}
         />
       </div>
     )
