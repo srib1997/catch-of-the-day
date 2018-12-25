@@ -11,6 +11,7 @@ class App extends React.Component {
     fishes: {},
     order: {}
   }
+
   // 當元件被寫入 DOM 之後觸發. 當初始化需要操作 DOM 元素就可以用這個方法
   componentDidMount() {
     const { params } = this.props.match
@@ -28,10 +29,12 @@ class App extends React.Component {
       state: "fishes"
     })
   }
+
   // 當元件準備要被移除或破壞時觸發
   componentWillUnmount() {
     base.removeBinding(this.ref)
   }
+
   // 界面 load 完的時侯
   componentDidUpdate() {
     // 在 localStorage 存放資料，可以在 chrome 的 inspect 的 Application 的 Storage 的 local storage 查看
@@ -68,6 +71,7 @@ class App extends React.Component {
     // 3, update state
     this.setState({ fishes })
   }
+
   loadSampleFishes = () => {
     this.setState({ fishes: sampleFishes })
   }
@@ -95,6 +99,8 @@ class App extends React.Component {
     this.setState({ order })
   }
 
+  // Object.keys: array 會返回一組數字， object 會返回 value 數值并會順序
+  // map() 方法會建立一個新的陣列，其內容為原陣列的每一個元素經由回呼函式運算後所回傳的結果之集合。
   render() {
     return (
       <div className="catch-of-the-day">
